@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zyvor Relay — Never lose an accepted event</title>
+<meta name="description" content="Zyvor Relay is the reliability control plane for durable events, acknowledged notifications, idempotent actions and verified outcomes.">
+<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zyvor Relay — Never lose an accepted event">
+<meta property="og:description" content="Durable events. Acknowledged notifications. Idempotent actions. Verified outcomes.">
+<meta property="og:image" content="https://zyvorai.github.io/relay-site/assets/og.png">
+<meta property="og:url" content="https://zyvorai.github.io/relay-site/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/zyvor-mark.svg">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Zyvor Relay home"><img src="assets/zyvor-mark.svg" alt="" width="22" height="22"><span>Relay</span></a>
+    <nav aria-label="Primary">
+      <a href="#overview">Overview</a>
+      <a href="#guarantees">Reliability</a>
+      <a href="#demo">Console</a>
+      <a href="#specs">Specs</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="palette-btn" aria-label="Open command palette (Command K)">⌘K</button>
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <p class="eyebrow reveal">Zyvor Relay</p>
+  <h1 class="reveal d1">Never lose<br><span class="grad">an accepted event.</span></h1>
+  <p class="lede reveal d2">The reliability control plane for durable events, acknowledged notifications, idempotent actions and verified outcomes.</p>
+  <p class="cta reveal d3"><a class="btn" href="#demo">Try the console</a><a class="link" href="#guarantees">Learn more</a></p>
+  <div class="device reveal d3" data-parallax aria-hidden="true">
+    <div class="device-bar"><i></i><i></i><i></i></div>
+    <div class="device-body">
+      <div class="stat"><b data-count="99.99" data-dec="2">0</b><span>% delivery</span></div>
+      <div class="stat"><b data-count="0">0</b><span>duplicate side effects</span></div>
+      <div class="stat"><b data-count="4">0</b><span>stage verified loop</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="overview">
+  <h2 class="reveal">Accepted means <em>durable.</em></h2>
+  <p class="sub reveal d1">Once Relay says yes, the event is on disk, fenced and tracked until a verified outcome. No silent drops. No double charges. No guesswork.</p>
+</section>
+
+<section class="grid4" id="guarantees">
+  <h2 class="sr">Four guarantees</h2>
+  <article class="card reveal"><span class="num">01</span><h3>Durable</h3><p>Accepted events are persisted before acknowledgement and survive restarts.</p></article>
+  <article class="card reveal d1"><span class="num">02</span><h3>Acknowledged</h3><p>Notifications retry with backoff until a human or system confirms.</p></article>
+  <article class="card reveal d2"><span class="num">03</span><h3>Idempotent</h3><p>Critical actions execute once, even when the network repeats itself.</p></article>
+  <article class="card reveal d3"><span class="num">04</span><h3>Verified</h3><p>Outcomes are checked against reality, not assumed from a 200 OK.</p></article>
+</section>
+
+<section class="loop band" aria-label="Control loop">
+  <svg class="rings" viewBox="0 0 200 200" aria-hidden="true">
+    <circle class="r r1" cx="100" cy="100" r="86"/><circle class="r r2" cx="100" cy="100" r="64"/><circle class="r r3" cx="100" cy="100" r="42"/>
+  </svg>
+  <h2 class="reveal">One closed loop.</h2>
+  <p class="sub reveal d1">Accept, notify, act, verify. Every ring closes before an event is done.</p>
+</section>
+
+<section class="demo" id="demo">
+  <h2 class="reveal">Feel the console.</h2>
+  <p class="sub reveal d1">A live simulation with fake data. Nothing leaves your browser.</p>
+  <div class="console reveal d2">
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="dash">Dashboard</button>
+      <button role="tab" aria-selected="false" data-tab="events">Events</button>
+      <button role="tab" aria-selected="false" data-tab="dlq">DLQ</button>
+      <span class="grow"></span>
+      <button class="btn sm" id="send">Send event</button>
+    </div>
+    <div class="pane" id="pane-dash">
+      <div class="kpis">
+        <div><b id="k-acc">0</b><span>Accepted</span></div>
+        <div><b id="k-ack">0</b><span>Acknowledged</span></div>
+        <div><b id="k-ver">0</b><span>Verified</span></div>
+        <div><b id="k-dlq">0</b><span>Dead-lettered</span></div>
+      </div>
+      <ol class="timeline" id="timeline" aria-live="polite"></ol>
+    </div>
+    <div class="pane" id="pane-events" hidden><ul class="list" id="list-events"></ul></div>
+    <div class="pane" id="pane-dlq" hidden><ul class="list" id="list-dlq"><li class="empty">Nothing here. That is the point.</li></ul></div>
+  </div>
+</section>
+
+<section class="specs" id="specs">
+  <h2 class="reveal">Tech specs.</h2>
+  <dl class="spec-list reveal d1">
+    <div><dt>Runtime</dt><dd>Single Go binary, embedded console</dd></div>
+    <div><dt>Storage</dt><dd>PostgreSQL, ordered migrations</dd></div>
+    <div><dt>Deploy</dt><dd>Bare VM, k3s or Helm</dd></div>
+    <div><dt>Security</dt><dd>Native TLS, OIDC with PKCE, multi-tenant</dd></div>
+    <div><dt>License</dt><dd>Apache-2.0</dd></div>
+  </dl>
+</section>
+</main>
+
+<footer class="foot">
+  <p>© 2026 Zyvor AI Labs. Zyvor Relay core is private; open components live at <a href="https://github.com/zyvorai">github.com/zyvorai</a>.</p>
+</footer>
+
+<div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+  <div class="palette-box">
+    <input id="palette-input" placeholder="Jump to…" autocomplete="off" aria-label="Command">
+    <ul id="palette-list"></ul>
+  </div>
+</div>
+<script src="js/site.js" defer></script>
+</body>
+</html>
