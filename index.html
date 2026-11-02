@@ -3,20 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-YFGi/mz/r2ZamOarnidksX2p7zCMPbq5lNt9pHjpRHI='; style-src 'self' 'sha256-TOtpfMKzHU3DrgZZwvVqrJGxpuvEDJ6e7pUPUtBmgjI='; img-src 'self' data:; font-src 'self'; manifest-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
 <title>Zyvor Relay — Never lose an accepted event</title>
 <meta name="description" content="Zyvor Relay is the reliability control plane for durable events, acknowledged notifications, idempotent actions and verified outcomes.">
+<link rel="canonical" href="https://zyvorai.github.io/relay-site/">
 <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Zyvor Relay">
 <meta property="og:title" content="Zyvor Relay — Never lose an accepted event">
 <meta property="og:description" content="Durable events. Acknowledged notifications. Idempotent actions. Verified outcomes.">
 <meta property="og:image" content="https://zyvorai.github.io/relay-site/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zyvor Relay: never lose an accepted event.">
 <meta property="og:url" content="https://zyvorai.github.io/relay-site/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zyvor Relay — Never lose an accepted event">
+<meta name="twitter:description" content="Durable events. Acknowledged notifications. Idempotent actions. Verified outcomes.">
+<meta name="twitter:image" content="https://zyvorai.github.io/relay-site/assets/og.png">
 <link rel="icon" type="image/svg+xml" href="assets/zyvor-mark.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css">
+<link rel="preload" href="assets/fonts/archivo-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.270ed9faf7.css">
+<noscript><style>.reveal{opacity:1;transform:none}.r{stroke-dashoffset:calc(var(--c)*.06);opacity:1}.story{height:auto}.story-in{position:static;height:auto}.steps li{opacity:1}</style></noscript>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Zyvor Relay","applicationCategory":"DeveloperApplication","operatingSystem":"Linux","description":"Reliability control plane for durable events, acknowledged notifications, idempotent actions and verified outcomes.","url":"https://zyvorai.github.io/relay-site/","license":"https://www.apache.org/licenses/LICENSE-2.0","publisher":{"@type":"Organization","name":"Zyvor AI Labs","url":"https://zyvor.dev"}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -26,13 +40,13 @@
     <a class="brand" href="#top" aria-label="Zyvor Relay home"><img src="assets/zyvor-mark.svg" alt="" width="22" height="22"><span>Relay</span></a>
     <nav aria-label="Primary">
       <a href="#overview">Overview</a>
-      <a href="#guarantees">Reliability</a>
+      <a href="#how">How it works</a>
       <a href="#demo">Console</a>
-      <a href="#specs">Specs</a>
+      <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
-      <button class="icon-btn" id="palette-btn" aria-label="Open command palette (Command K)">⌘K</button>
-      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">◐</button>
+      <button type="button" class="icon-btn" id="palette-btn" aria-haspopup="dialog"><span class="kbd" id="kbd">⌘K</span><span class="jump">Menu</span><span class="sr"> command palette</span></button>
+      <button type="button" class="icon-btn" id="theme-btn" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
     </div>
   </div>
 </header>
@@ -42,20 +56,28 @@
   <p class="eyebrow reveal">Zyvor Relay</p>
   <h1 class="reveal d1">Never lose<br><span class="grad">an accepted event.</span></h1>
   <p class="lede reveal d2">The reliability control plane for durable events, acknowledged notifications, idempotent actions and verified outcomes.</p>
-  <p class="cta reveal d3"><a class="btn" href="#demo">Try the console</a><a class="link" href="#guarantees">Learn more</a></p>
-  <div class="device reveal d3" data-parallax aria-hidden="true">
-    <div class="device-bar"><i></i><i></i><i></i></div>
-    <div class="device-body">
-      <div class="stat"><b data-count="99.99" data-dec="2">0</b><span>% delivery</span></div>
-      <div class="stat"><b data-count="0">0</b><span>duplicate side effects</span></div>
-      <div class="stat"><b data-count="4">0</b><span>stage verified loop</span></div>
-    </div>
-  </div>
+  <p class="cta reveal d3"><a class="btn" href="#demo">Try the console</a><a class="link" href="#how">See how it works</a></p>
+  <figure class="device reveal d3" data-parallax>
+    <div class="device-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+    <picture class="shot shot-light">
+      <source type="image/webp" srcset="assets/console-light-720.webp 720w, assets/console-light.webp 1440w" sizes="(min-width: 900px) 880px, 92vw">
+      <img src="assets/console-light.jpg" width="1440" height="730" alt="The Relay operator console overview in light mode: tenant health, escalated events and accepted, awaiting-ack, verified and dead-letter counters." loading="lazy" decoding="async">
+    </picture>
+    <picture class="shot shot-dark">
+      <source type="image/webp" srcset="assets/console-dark-720.webp 720w, assets/console-dark.webp 1440w" sizes="(min-width: 900px) 880px, 92vw">
+      <img src="assets/console-dark.jpg" width="1440" height="730" alt="The Relay operator console overview in dark mode." loading="lazy" decoding="async">
+    </picture>
+  </figure>
 </section>
 
 <section class="band" id="overview">
   <h2 class="reveal">Accepted means <em>durable.</em></h2>
-  <p class="sub reveal d1">Once Relay says yes, the event is on disk, fenced and tracked until a verified outcome. No silent drops. No double charges. No guesswork.</p>
+  <p class="sub reveal d1">Once Relay says yes, the event is on disk and tracked until a verified outcome. No silent drops. No double execution. No guesswork.</p>
+  <div class="stats reveal d2">
+    <div class="stat"><b data-count="5">0</b><span>stage control loop</span></div>
+    <div class="stat"><b data-count="0">0</b><span>unverified successes</span></div>
+    <div class="stat"><b data-count="1">0</b><span>binary to deploy</span></div>
+  </div>
 </section>
 
 <section class="grid4" id="guarantees">
@@ -66,36 +88,92 @@
   <article class="card reveal d3"><span class="num">04</span><h3>Verified</h3><p>Outcomes are checked against reality, not assumed from a 200 OK.</p></article>
 </section>
 
-<section class="loop band" aria-label="Control loop">
-  <svg class="rings" viewBox="0 0 200 200" aria-hidden="true">
-    <circle class="r r1" cx="100" cy="100" r="86"/><circle class="r r2" cx="100" cy="100" r="64"/><circle class="r r3" cx="100" cy="100" r="42"/>
-  </svg>
-  <h2 class="reveal">One closed loop.</h2>
-  <p class="sub reveal d1">Accept, notify, act, verify. Every ring closes before an event is done.</p>
+<section class="story" id="how" aria-labelledby="story-h">
+  <div class="story-in">
+    <div class="story-copy">
+      <h2 id="story-h">One closed loop.</h2>
+      <ol class="steps" id="steps">
+        <li data-step="0" class="on"><h3>Accept</h3><p>The event is written durably before Relay answers. A repeated idempotency key returns the original event instead of a duplicate.</p></li>
+        <li data-step="1"><h3>Notify</h3><p>People and systems are told first, over push, email, SMS, chat and more, with backoff when delivery fails.</p></li>
+        <li data-step="2"><h3>Acknowledge</h3><p>No acknowledgement means escalation, not silence. The loop stays open until someone owns the event.</p></li>
+        <li data-step="3"><h3>Act</h3><p>Critical actions wait for approval and run once, protected by idempotency keys.</p></li>
+        <li data-step="4"><h3>Verify</h3><p>The outcome is checked against real telemetry. Only a verified event is a finished event.</p></li>
+      </ol>
+    </div>
+    <svg class="rings story-rings" id="rings" viewBox="0 0 200 200" role="img" aria-label="Five concentric rings, one per stage, that fill as the loop progresses.">
+      <circle class="r r1" cx="100" cy="100" r="90"/><circle class="r r2" cx="100" cy="100" r="74"/><circle class="r r3" cx="100" cy="100" r="58"/><circle class="r r4" cx="100" cy="100" r="42"/><circle class="r r5" cx="100" cy="100" r="26"/>
+    </svg>
+  </div>
+</section>
+
+<section class="arch" id="fits" aria-labelledby="arch-h">
+  <h2 id="arch-h" class="reveal">Where it fits.</h2>
+  <p class="sub reveal d1">Relay sits between the systems that raise events and the people and machines that must act on them.</p>
+  <div class="diagram-wrap reveal d2"><svg class="diagram" viewBox="0 0 760 220" role="img" aria-labelledby="arch-t arch-d">
+    <title id="arch-t">Relay architecture</title>
+    <desc id="arch-d">Your systems send events to Relay. Relay stores them durably, notifies people over several channels, runs approved actions through the Action Gateway, and verifies the outcome against a probe.</desc>
+    <g class="dg-box">
+      <rect x="10" y="80" width="150" height="60" rx="14"/><rect x="230" y="60" width="170" height="100" rx="16" class="dg-main"/>
+      <rect x="480" y="10" width="190" height="56" rx="14"/><rect x="480" y="82" width="190" height="56" rx="14"/><rect x="480" y="154" width="190" height="56" rx="14"/>
+    </g>
+    <g class="dg-text" text-anchor="middle">
+      <text x="85" y="115">Your systems</text>
+      <text x="315" y="104" class="dg-strong">Relay</text><text x="315" y="126" class="dg-sub">durable store · policy</text>
+      <text x="575" y="43">Notify: push, email, chat</text><text x="575" y="115">Action Gateway</text><text x="575" y="187">Verify against telemetry</text>
+    </g>
+    <g class="dg-line" fill="none"><path d="M160 110h70"/><path d="M400 90c30 0 40-52 80-52"/><path d="M400 110h80"/><path d="M400 130c30 0 40 52 80 52"/></g>
+  </svg></div>
+</section>
+
+<section class="compare" aria-labelledby="cmp-h">
+  <h2 id="cmp-h" class="reveal">More than a retry queue.</h2>
+  <div class="table-wrap reveal d1">
+    <table>
+      <caption class="sr">Zyvor Relay compared with a typical retry queue</caption>
+      <thead><tr><th scope="col">Capability</th><th scope="col">Typical retry queue</th><th scope="col">Zyvor Relay</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Accepted events survive a crash</th><td>Depends on configuration</td><td>Persisted before acknowledgement</td></tr>
+        <tr><th scope="row">Duplicate side effects</th><td>Possible on retry</td><td>Idempotency keys fence actions</td></tr>
+        <tr><th scope="row">Someone owns the event</th><td>Delivery is the goal</td><td>Acknowledgement with escalation</td></tr>
+        <tr><th scope="row">Did it actually work?</th><td>A 200 OK counts</td><td>Verified against telemetry</td></tr>
+        <tr><th scope="row">Audit trail</th><td>Logs</td><td>Immutable per-event timeline</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <section class="demo" id="demo">
   <h2 class="reveal">Feel the console.</h2>
   <p class="sub reveal d1">A live simulation with fake data. Nothing leaves your browser.</p>
   <div class="console reveal d2">
-    <div class="tabs" role="tablist">
-      <button role="tab" aria-selected="true" data-tab="dash">Dashboard</button>
-      <button role="tab" aria-selected="false" data-tab="events">Events</button>
-      <button role="tab" aria-selected="false" data-tab="dlq">DLQ</button>
+    <div class="tabs">
+      <div role="tablist" aria-label="Console views">
+        <button type="button" role="tab" id="tab-dash" aria-controls="pane-dash" aria-selected="true" tabindex="0" data-tab="dash">Dashboard</button>
+        <button type="button" role="tab" id="tab-events" aria-controls="pane-events" aria-selected="false" tabindex="-1" data-tab="events">Events</button>
+        <button type="button" role="tab" id="tab-dlq" aria-controls="pane-dlq" aria-selected="false" tabindex="-1" data-tab="dlq">DLQ</button>
+      </div>
       <span class="grow"></span>
-      <button class="btn sm" id="send">Send event</button>
+      <label class="ctl">Failures <select id="fail"><option value="off">None</option><option value="low" selected>Some</option><option value="high">Many</option></select></label>
+      <label class="ctl">Speed <select id="speed"><option value="normal" selected>Normal</option><option value="fast">Fast</option></select></label>
+      <button type="button" class="btn sm" id="send">Send event</button>
     </div>
-    <div class="pane" id="pane-dash">
+    <div class="pane" id="pane-dash" role="tabpanel" aria-labelledby="tab-dash" tabindex="0">
       <div class="kpis">
         <div><b id="k-acc">0</b><span>Accepted</span></div>
         <div><b id="k-ack">0</b><span>Acknowledged</span></div>
         <div><b id="k-ver">0</b><span>Verified</span></div>
         <div><b id="k-dlq">0</b><span>Dead-lettered</span></div>
       </div>
-      <ol class="timeline" id="timeline" aria-live="polite"></ol>
+      <ol class="timeline" id="timeline"></ol>
+      <p class="sr" id="demo-status" role="status" aria-live="polite"></p>
     </div>
-    <div class="pane" id="pane-events" hidden><ul class="list" id="list-events"></ul></div>
-    <div class="pane" id="pane-dlq" hidden><ul class="list" id="list-dlq"><li class="empty">Nothing here. That is the point.</li></ul></div>
+    <div class="pane" id="pane-events" role="tabpanel" aria-labelledby="tab-events" tabindex="0" hidden>
+      <ul class="list" id="list-events"></ul>
+      <section class="detail" id="detail" aria-label="Event detail" hidden>
+        <h3 id="detail-title">Event</h3><p class="muted" id="detail-meta"></p><ol class="timeline" id="detail-steps"></ol>
+      </section>
+    </div>
+    <div class="pane" id="pane-dlq" role="tabpanel" aria-labelledby="tab-dlq" tabindex="0" hidden><ul class="list" id="list-dlq"><li class="empty">Nothing here. That is the point.</li></ul></div>
   </div>
 </section>
 
@@ -109,6 +187,22 @@
     <div><dt>License</dt><dd>Apache-2.0</dd></div>
   </dl>
 </section>
+
+<section class="faq" id="faq" aria-labelledby="faq-h">
+  <h2 id="faq-h" class="reveal">Questions.</h2>
+  <div class="reveal d1">
+    <details><summary>What does “accepted” mean?</summary><p>The event has been written durably. If you send the same idempotency key again, Relay returns the original event instead of creating a second one.</p></details>
+    <details><summary>Does it need a cloud?</summary><p>No. Relay runs on a laptop, an edge VM, in Docker or on private Kubernetes such as k3s. Cloud adapters are optional.</p></details>
+    <details><summary>How is it deployed?</summary><p>As a single Go binary with the operator console embedded, backed by PostgreSQL or an in-memory store for trials. A Helm chart and k3s manifests are included.</p></details>
+    <details><summary>Is it open source?</summary><p>Relay is licensed under Apache-2.0. The core repository is currently private; open components live at <a href="https://github.com/zyvorai">github.com/zyvorai</a>.</p></details>
+    <details><summary>Does the demo send anything anywhere?</summary><p>No. The console above is a simulation running entirely in your browser with made-up data.</p></details>
+  </div>
+</section>
+
+<section class="closing" aria-labelledby="close-h">
+  <h2 id="close-h" class="reveal">Make every accepted event count.</h2>
+  <p class="cta reveal d1"><a class="btn" href="https://zyvor.dev" rel="noopener">Request access</a><a class="link" href="https://github.com/zyvorai" rel="noopener">See open components</a></p>
+</section>
 </main>
 
 <footer class="foot">
@@ -117,10 +211,11 @@
 
 <div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
   <div class="palette-box">
-    <input id="palette-input" placeholder="Jump to…" autocomplete="off" aria-label="Command">
-    <ul id="palette-list"></ul>
+    <input id="palette-input" type="text" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" aria-activedescendant="" placeholder="Jump to…" autocomplete="off" aria-label="Command">
+    <ul id="palette-list" role="listbox" aria-label="Commands"></ul>
   </div>
 </div>
-<script src="js/site.js" defer></script>
+<script src="js/core.bdbe0b33d3.js" defer></script>
+<script src="js/site.ae4950b151.js" defer></script>
 </body>
 </html>
