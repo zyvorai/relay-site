@@ -7,7 +7,8 @@
 Durable events. Acknowledged notifications. Idempotent actions. Verified outcomes.</p>
 
 <p align="center">
-  <a href="https://zyvorai.github.io/relay-site/"><b>Explore the live demo ›</b></a>
+  <a href="https://zyvorai.github.io/relay-site/"><b>Explore the live demo ›</b></a> &nbsp;·&nbsp;
+  <a href="https://zyvorai.github.io/relay-site/changelog.html">What’s new ›</a>
 </p>
 
 <p align="center">
