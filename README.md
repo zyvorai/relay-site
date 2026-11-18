@@ -15,6 +15,8 @@ Durable events. Acknowledged notifications. Idempotent actions. Verified outcome
   <img src="assets/og.png" alt="Zyvor Relay" width="720">
 </p>
 
+[Client overview (PDF)](docs/Zyvor-Relay-Client-Overview.pdf)
+
 ## Four guarantees
 
 | | Guarantee | What it means |
