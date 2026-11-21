@@ -37,7 +37,7 @@ Durable events. Acknowledged notifications. Idempotent actions. Verified outcome
 
 ## Pricing
 
-Per device per year, one ladder shared with Fleet, Device Agent, OTA and Nodra: 1-999 devices USD 18 (INR 1,784 incl. GST in India), 1,000-9,999 USD 12 (INR 1,189), 10,000 and above USD 8 (INR 793); annual minimum USD 5,000 (INR 495,600). Prices: INR incl. 18% GST in India; US dollars excl. tax elsewhere (VAT, GST or sales tax added where applicable). Pay online by UPI, card or netbanking where a buy page exists; international cards work (charged in rupees); or request a US-dollar invoice by bank transfer. Custom pricing: contact [sales@zyvor.dev](mailto:sales@zyvor.dev). Production licences come with a 30-day trial key. Buy / get a quote: [zyvor.dev/buy](https://zyvor.dev/buy).
+Per device per year, one ladder shared with Fleet, Device Agent, OTA and Nodra: 1-999 devices USD 18 (INR 1,784 incl. GST in India), 1,000-9,999 USD 12 (INR 1,189), 10,000 and above USD 8 (INR 793); annual minimum USD 5,000 (INR 495,600). Prices: INR incl. 18% GST in India; US dollars excl. tax elsewhere (VAT, GST or sales tax added where applicable). Pay online by UPI, card or netbanking where a buy page exists; international cards work (charged in rupees). Orders of USD 5,000 or more and quotes are invoiced in USD through Skydo. Custom pricing: contact [sales@zyvor.dev](mailto:sales@zyvor.dev). Production licences come with a 30-day trial key. Buy / get a quote: [zyvor.dev/buy](https://zyvor.dev/buy).
 
 ---
 This repository contains the built website only. Licensed under the Zyvor Production License v1.0. © 2026 Zyvor AI Labs.
